@@ -8,7 +8,7 @@ const app = express();
 const PORT = 5001;
 
 //middleware
-app.use(bodyParser);
+//app.use(bodyParser);
 
 app.use("/api/places", placeRoutes);
 //app.use("/api/users", usersRoutes);
