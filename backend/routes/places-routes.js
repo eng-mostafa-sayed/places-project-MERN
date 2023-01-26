@@ -1,3 +1,6 @@
 const router = require("express").Router();
 
-export default router;
+router.get("/", (req, res) => {
+  res.send({ message: "Hello" });
+});
+module.exports = router;
