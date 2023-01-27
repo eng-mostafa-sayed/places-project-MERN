@@ -20,7 +20,7 @@ class Users {
   static login = (req, res, next) => {
     try {
       const user = req.body;
-      responseGenerator(res, 201, req.body, " user logged-in successfully");
+      responseGenerator(res, 201, req.body, "user logged-in successfully");
     } catch (e) {
       next(new httpError(e.message || "could not login", 404));
     }
