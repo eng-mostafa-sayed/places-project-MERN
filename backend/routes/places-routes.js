@@ -1,11 +1,12 @@
 const router = require("express").Router();
 
-const httpError = require("../utilities/http-error");
-const { responseGenerator } = require("../utilities/response-generator");
+const Places = require("../controllers/places-controller");
 
-router.get("/", (req, res, next) => {
-  //res.json({ message: "Hello" });
-  responseGenerator(res, 201, { new: "hello" }, "done successfully");
-  next(new httpError("could not find a place for a provided user id", 404));
-});
+router.get("/", Places.getAllPlaces);
+router.post("/", Places.createPlace);
+router.get("/user/:id", Places.getPlacesByID);
+router.patch("/:pid", Places.updatePlace);
+router.get("/:pid", Places.getSinglePlace);
+router.delete("/:pid", Places.deletePlace);
+
 module.exports = router;
