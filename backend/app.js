@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 
 const placeRoutes = require("./routes/places-routes");
 const usersRoutes = require("./routes/users-routes");
@@ -10,6 +11,7 @@ const PORT = 5001;
 
 //middleware
 app.use(bodyParser.json());
+app.use(cors({ credentials: true, origin: true }));
 
 app.use("/api/places", placeRoutes);
 app.use("/api/users", usersRoutes);
