@@ -1,13 +1,15 @@
 const express = require("express");
+require("dotenv").config();
 const bodyParser = require("body-parser");
 const cors = require("cors");
+require("./config/DB.connections");
 
 const placeRoutes = require("./routes/places-routes");
 const usersRoutes = require("./routes/users-routes");
 const httpError = require("./utilities/http-error");
 
 const app = express();
-const PORT = 5001;
+const PORT = process.env.PORT || 5000;
 
 //middleware
 app.use(bodyParser.json());
